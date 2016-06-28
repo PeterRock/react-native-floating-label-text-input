@@ -115,7 +115,7 @@ var FloatLabelTextField = React.createClass({
                 keyboardType={this.props.keyboardType}
                 autoCapitalize={this.props.autoCapitalize}
                 autoCorrect={this.props.autoCorrect}
-                {...this.props}
+                autoFocus={this.props.autoFocus}
               />
             </TextFieldHolder>
           </View>
@@ -191,21 +191,23 @@ var styles = StyleSheet.create({
     left: 0
   },
   fieldLabel: {
-    height: 10,
+    height: 14,
     fontSize: 9,
     color: '#B1B1B1'
   },
   fieldContainer: {
     flex: 1,
     justifyContent: 'center',
-    position: 'relative'
+    position: 'relative',
+    overflow: 'hidden',
   },
   withBorder: {
     borderBottomWidth: 1 / 2,
     borderColor: '#C8C7CC',
   },
   valueText: {
-    height: 20,
+    height: 45,
+    lineHeight: 45,
     fontSize: 16,
     color: '#111111'
   },
