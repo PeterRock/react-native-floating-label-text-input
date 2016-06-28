@@ -51,3 +51,10 @@ Feel free to open an issue on github, send suggestions, fork this repository or 
 This package was developed during my work at [Samanage](http://www.samanage.com/).
 
 Thanks and Enjoy! :)
+
+### Finished the support for selectionColor
+for example:
+`
+this.ref.floatInput.state.selectionColor = 'red'
+`
+the the label color will be red

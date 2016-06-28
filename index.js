@@ -1,7 +1,14 @@
 'use strict';
 
-var React = require('react-native');
-var { StyleSheet, Text, View, TextInput, Animated } = React;
+import React from 'react';
+
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Animated
+} from 'react-native';
 
 var FloatingLabel = React.createClass({
   getInitialState: function() {
@@ -67,7 +74,8 @@ var FloatLabelTextField = React.createClass({
   getInitialState: function() {
     return {
       focussed: false,
-      text: this.props.value
+      text: this.props.value,
+      selectionColor: this.props.selectionColor,
     };
   },
 
@@ -107,6 +115,7 @@ var FloatLabelTextField = React.createClass({
                 keyboardType={this.props.keyboardType}
                 autoCapitalize={this.props.autoCapitalize}
                 autoCorrect={this.props.autoCorrect}
+                autoFocus
               />
             </TextFieldHolder>
           </View>
@@ -133,7 +142,9 @@ var FloatLabelTextField = React.createClass({
   },
 
   labelStyle: function() {
-    if (this.state.focussed) {
+    if (this.state.selectionColor) {
+      return {color:this.state.selectionColor};
+    }else if (this.state.focussed) {
       return styles.focussed;
     }
   },
