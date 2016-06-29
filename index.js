@@ -102,6 +102,7 @@ var FloatLabelTextField = React.createClass({
             </FloatingLabel>
             <TextFieldHolder withValue={this.state.text}>
               <TextInput
+                ref="textInput"
                 placeholder={this.props.placeholder}
                 style={[styles.valueText]}
                 defaultValue={this.props.defaultValue}
@@ -109,6 +110,7 @@ var FloatLabelTextField = React.createClass({
                 maxLength={this.props.maxLength}
                 selectionColor={this.props.selectionColor}
                 onFocus={this.setFocus}
+                onChange={this.props.onChange}
                 onBlur={this.unsetFocus}
                 onChangeText={this.setText}
                 secureTextEntry={this.props.secureTextEntry}
@@ -127,6 +129,7 @@ var FloatLabelTextField = React.createClass({
     this.setState({
       focussed: true
     });
+    this.refs.textInput.focus();
     try {
       return this.props.onFocus();
     } catch (_error) {}
@@ -136,6 +139,7 @@ var FloatLabelTextField = React.createClass({
     this.setState({
       focussed: false
     });
+    this.refs.textInput.blur();
     try {
       return this.props.onBlur();
     } catch (_error) {}
